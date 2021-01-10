@@ -23,6 +23,7 @@ knitr::opts_chunk$set(
 )
 library(tidyverse)
 library(sds192)
+library(fivethirtyeight)
 ```
 
 ## Section 1
@@ -31,6 +32,22 @@ library(sds192)
 mtcars
 ```
 
+
+x-axis: `h_income`
+y-axis: number of people falling into each bin of household income
+color coded to races 
+
+```{r}
+police_graph <- ggplot(data=police_killings, aes(h_income)) + 
+  geom_histogram(aes(fill = raceethnicity)) + 
+  facet_wrap(~state) + 
+  coord_flip()+
+  scale_fill_brewer(palette = "Set1")+
+  scale_x_continuous(name = "Tract-level median household income")+
+  scale_y_continuous(name = "Number of individuals killed")
+#add labs(title, caption)
+police_graph
+```
 
 
 
