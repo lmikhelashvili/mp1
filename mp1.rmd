@@ -1,4 +1,4 @@
-poli---
+---
 title: "SDS 192 Assignment"
 subtitle: "SDS 192"
 author: "Malaika Kironde, Jack Kendrick, Lika Mikhelashvili"
@@ -49,7 +49,6 @@ ggplot(data=police_data, aes(h_income)) +
   geom_histogram(aes(fill = raceethnicity)) + 
   facet_wrap(~region) + 
   scale_fill_brewer(palette = "Set1")
-# change color of NA to black
 ```
 
 ```{r graph_random, message=FALSE}
