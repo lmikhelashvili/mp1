@@ -49,7 +49,7 @@ color coded to races
 ggplot(data=police_data, aes(h_income)) +
   geom_histogram() +
   theme_fivethirtyeight()+
-  theme(axes.title = element_text())+
+  theme(axis.title = element_text())+
   scale_fill_fivethirtyeight()+
   facet_wrap(~raceethnicity) + 
   scale_x_continuous(name = "Tract-level Median Household Income")+
