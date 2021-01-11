@@ -1,4 +1,4 @@
----
+poli---
 title: "SDS 192 Assignment"
 subtitle: "SDS 192"
 author: "Malaika Kironde, Jack Kendrick, Lika Mikhelashvili"
@@ -29,7 +29,11 @@ library(fivethirtyeight)
 ## Section 1
 
 ```{r}
-police_killings
+# Adding in column for Region to dataset
+state_region <- data.frame(state = state.abb, region = state.region)
+state_region <- rbind(state_region, data.frame(state = "DC", region = "South"))
+
+police_data <- merge(police_killings, state_region, by = "state")
 ```
 
 
@@ -40,12 +44,12 @@ y-axis: number of people falling into each bin of household income
 color coded to races 
 
 ```{r graph1, message=FALSE}
-ggplot(data=police_killings, aes(h_income)) +
+#Plot Code - Wrapping by Region
+ggplot(data=police_data, aes(h_income)) +
   geom_histogram(aes(fill = raceethnicity)) + 
-  facet_wrap(~state) + 
+  facet_wrap(~region) + 
   scale_fill_brewer(palette = "Set1")
 ```
-
 
 ```{r graph_random, message=FALSE}
 ggplot(data = police_killings, aes(state))+
