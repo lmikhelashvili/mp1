@@ -24,6 +24,7 @@ knitr::opts_chunk$set(
 library(tidyverse)
 library(sds192)
 library(fivethirtyeight)
+library(ggthemes)
 ```
 
 ## Section 1
@@ -46,9 +47,13 @@ color coded to races
 ```{r graph1, message=FALSE}
 #Plot Code - Wrapping by Region
 ggplot(data=police_data, aes(h_income)) +
-  geom_histogram(aes(fill = raceethnicity)) + 
-  facet_wrap(~region) + 
-  scale_fill_brewer(palette = "Set1")
+  geom_histogram() +
+  theme_fivethirtyeight()+
+  theme(axes.title = element_text())+
+  scale_fill_fivethirtyeight()+
+  facet_wrap(~raceethnicity) + 
+  scale_x_continuous(name = "Tract-level Median Household Income")+
+  scale_y_continuous(name = "Number of Individuals Killed")
 ```
 
 ```{r graph_random, message=FALSE}
