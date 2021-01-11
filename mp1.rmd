@@ -49,6 +49,7 @@ ggplot(data=police_killings, aes(h_income)) +
 
 ```{r graph_random, message=FALSE}
 ggplot(data = police_killings, aes(state))+
+  coord_flip()+
   geom_bar(aes(x = state, stat = "count", fill = raceethnicity))
 ```
 
