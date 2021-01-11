@@ -31,7 +31,7 @@ library(fivethirtyeight)
 ```{r}
 police_killings
 ```
- shba
+
 
 x-axis: `h_income`
 
