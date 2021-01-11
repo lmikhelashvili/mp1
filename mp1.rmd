@@ -37,12 +37,7 @@ state_region <- rbind(state_region, data.frame(state = "DC", region = "South"))
 police_data <- merge(police_killings, state_region, by = "state")
 ```
 
-
-x-axis: `h_income`
-
-y-axis: number of people falling into each bin of household income
-
-color coded to races 
+### Graph 1
 
 ```{r graph1, message=FALSE}
 #Plot Code - Wrapping by Race
@@ -55,20 +50,24 @@ ggplot(data=police_data, aes(h_income)) +
   scale_x_continuous(name = "Tract-level Median Household Income")+
   scale_y_continuous(name = "Number of Individuals Killed")+
   labs(
-    title = "Median Household Income Distribution Among People Killed by the Police", 
-    subtitle = "By race",
+    title = "Median Household Income Distribution Among People Killed by the Police in 2015", 
+    subtitle = "Distribution by Race",
     caption = "Source: fivethirtyeight"
   )
 ```
+
+### Graph 2
 
 ```{r racial_breakdown, message=FALSE}
 ggplot(data = police_killings, aes(state))+
   coord_flip()+
   geom_bar(aes(x = state, fill = raceethnicity))+
     labs(
-    title = "Racial Breakdown of People Killed by the Police", 
+    title = "Racial Breakdown of People Killed by the Police in 2015", 
     caption = "Source: fivethirtyeight"
-  )
+  )+
+  scale_x_discrete(name = "State Abbreviation")+
+  scale_y_continuous(name = "Number of Individuals Killed")
 ```
 
 
