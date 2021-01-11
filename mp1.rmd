@@ -45,7 +45,7 @@ y-axis: number of people falling into each bin of household income
 color coded to races 
 
 ```{r graph1, message=FALSE}
-#Plot Code - Wrapping by Region
+#Plot Code - Wrapping by Race
 ggplot(data=police_data, aes(h_income)) +
   geom_histogram() +
   theme_fivethirtyeight()+
@@ -53,13 +53,22 @@ ggplot(data=police_data, aes(h_income)) +
   scale_fill_fivethirtyeight()+
   facet_wrap(~raceethnicity) + 
   scale_x_continuous(name = "Tract-level Median Household Income")+
-  scale_y_continuous(name = "Number of Individuals Killed")
+  scale_y_continuous(name = "Number of Individuals Killed")+
+  labs(
+    title = "Median Household Income Distribution Among People Killed by the Police", 
+    subtitle = "By race",
+    caption = "Source: fivethirtyeight"
+  )
 ```
 
 ```{r graph_random, message=FALSE}
 ggplot(data = police_killings, aes(state))+
   coord_flip()+
-  geom_bar(aes(x = state, stat = "count", fill = raceethnicity))
+  geom_bar(aes(x = state, stat = "count", fill = raceethnicity))+
+    labs(
+    title = "Racial Breakdown of People Killed by the Police", 
+    caption = "Source: fivethirtyeight"
+  )
 ```
 
 
