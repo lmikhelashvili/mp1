@@ -61,10 +61,10 @@ ggplot(data=police_data, aes(h_income)) +
   )
 ```
 
-```{r graph_random, message=FALSE}
+```{r racial_breakdown, message=FALSE}
 ggplot(data = police_killings, aes(state))+
   coord_flip()+
-  geom_bar(aes(x = state, stat = "count", fill = raceethnicity))+
+  geom_bar(aes(x = state, fill = raceethnicity))+
     labs(
     title = "Racial Breakdown of People Killed by the Police", 
     caption = "Source: fivethirtyeight"
