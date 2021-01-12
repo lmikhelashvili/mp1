@@ -39,7 +39,7 @@ state_region <- rbind(state_region, data.frame(state = "DC", region = "South"))
 police_data <- merge(police_killings, state_region, by = "state")
 ```
 
-```{r}
+```{r, include=FALSE}
 police_data
 ```
 
@@ -49,7 +49,6 @@ police_data
 ```{r graph1, message=FALSE}
 #Plot Code - Wrapping by Race
 ggplot(data=police_data, aes(h_income)) +
-<<<<<<< HEAD
   geom_histogram(color="black",fill="white") +
   theme_fivethirtyeight()+ 
   geom_vline(xintercept=40000, linetype="dotted") +
@@ -57,11 +56,6 @@ ggplot(data=police_data, aes(h_income)) +
   geom_text(aes(x=40000, label="Middle Class", y=20), color="blue", angle=90, vjust=1.5, size=2) +
   geom_text(aes(x=120000, label="Upper Class", y=20), color="blue", angle=90, vjust=1.5, size=2) +
   geom_vline(xintercept=120000, linetype="dotted") +
-=======
-  geom_histogram(binwidth = 10000) +
-  geom_vline(xintercept = 56516) +
-  theme_fivethirtyeight()+
->>>>>>> 665581b8574b6c521f4aa7505682fe1ba6c19dd6
   theme(axis.title = element_text())+
   scale_fill_fivethirtyeight()+
   facet_wrap(~raceethnicity) + 
@@ -77,8 +71,6 @@ ggplot(data=police_data, aes(h_income)) +
 Graph 1 shows how the number of individuals killed varies with their median household income. Generally, we can see that for each race, the highest number of individuals killed by the police lies in lower class. The exception to this is Asian/Pacific Islander and White, where the highest number of individuals killed lies just above the boundary for the lower class. This is especially telling since even though the lower class only accounts for around 30% of the population (Pew Research Center, 2015), they still have the highest number of individuals killed by the police.
 
 ### Graph 2
-
-The graphs below show the racial breakdowns of the individuals killed by the police in 2015 in each state (Figure 2.1) and region (Figure 2.2). Each race is mapped to a specific color. In figure 2.1 it is evident that in most states, the majority of the killings were of White race. However, a large proportion of Black individuals were killed in almost all states. Such trend is more evident in figure 2.2, where among all minority groups (Asian/Pacific Islander, Black Hispanic/Latino, Native American), a drastically high number of Black individuals are killed in almost all regions. 
 
 ```{r state_breakdown, message=FALSE}
 ggplot(data = police_data, aes(state))+
@@ -106,6 +98,7 @@ ggplot(data = police_data, aes(region))+
   scale_y_continuous(name = "Number of Individuals Killed")
 ```
 
+The graphs below show the racial breakdowns of the individuals killed by the police in 2015 in each state (Figure 2.1) and region (Figure 2.2). Each race is mapped to a specific color. In figure 2.1 it is evident that in most states, the majority of the killings were of White race. However, a large proportion of Black individuals were killed in almost all states. Such trend is more evident in figure 2.2, where among all minority groups (Asian/Pacific Islander, Black Hispanic/Latino, Native American), a drastically high number of Black individuals are killed in almost all regions. 
 
 ## Word count
 
@@ -117,7 +110,9 @@ text_stats()
 
 In this assignment, we attempted the following [standards](https://beanumber.github.io/sds192/standards.html):
 
-- `r standard_button("markdown")`: We met the Markdown standard because we...
-- `r standard_button("aesthetics")`: We met the Aesthetics standard because we...
+- `r standard_button("markdown")`
+We met the Markdown standard because we were able to format our markdown file such that it shows only necessary content by usinG booleans such as include, eval and echo. We were able to format our file to be readable using code chunks and data graphics. Furthermore, we had titles, subtitles and paragraphs to add partitions to our markdown file.
+- `r standard_button("aesthetics")`
+We met the Aesthetics standard because we used a histogram for our first data graphic and a bar chart for our second data graphic. We used a categorical color scheme to show different races in graph 2.
 
 
