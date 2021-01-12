@@ -53,7 +53,7 @@ police_data <- police_data %>%
 ggplot(data=police_data, aes(h_income)) +
   geom_histogram(binwidth=4000, aes(fill=income_range)) +
   scale_fill_brewer(palette = "Reds")+
-  theme(axis.title = element_text())+
+  
   facet_wrap(~raceethnicity) + 
   scale_x_continuous(name = "Tract-level Median Household Income ($)")+
   scale_y_continuous(name = "Number of Individuals Killed")+
@@ -62,8 +62,11 @@ ggplot(data=police_data, aes(h_income)) +
     title = "Figure 1: Economic Breakdown of Police Killings",
     subtitle = "Household Incomes Of People Killed by the Police",
     caption = "Source: fivethirtyeight",
-    fill = "Income Ranges"
-  )
+    fill = "Income Ranges",
+    xlab = "Tract-level Median Household Income ($)",
+    ylab = "Number of Individuals Killed"
+  ) +
+  theme(axis.title = element_text())
 ```
 
 Figure 1 shows how the number of individuals killed varies with their median household income. Generally, we can see that for each race, the highest number of individuals killed by the police lies in lower class. The exception to this is Asian/Pacific Islander and White, where the highest number of individuals killed lies just above the boundary for the lower class. This is especially telling since even though the [lower class only accounts for around 30% of the population](https://www.pewresearch.org/fact-tank/2020/07/23/are-you-in-the-american-middle-class/) yet they still have the highest number of individuals killed by the police ^[Bennett, J., Fry, R., & Kochhar, R. (2021). Are you in the American middle class? Find out with our income calculator. Pew Research Center. Retrieved 12 January 2021, from https://www.pewresearch.org/fact-tank/2020/07/23/are-you-in-the-american-middle-class/.].
