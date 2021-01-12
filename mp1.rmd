@@ -57,6 +57,7 @@ ggplot(data=police_data, aes(h_income)) +
   facet_wrap(~raceethnicity) + 
   scale_x_continuous(name = "Tract-level Median Household Income ($)")+
   scale_y_continuous(name = "Number of Individuals Killed")+
+  theme_fivethirtyeight()+
   labs(
     title = "Figure 1: Economic Breakdown of Police Killings",
     subtitle = "Household Incomes Of People Killed by the Police",
