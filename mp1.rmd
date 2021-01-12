@@ -26,6 +26,7 @@ library(tidyverse)
 library(sds192)
 library(fivethirtyeight)
 library(ggthemes)
+library(RColorBrewer)
 ```
 
 In the first six months of 2015, [467 people in the US were killed by the police](https://fivethirtyeight.com/features/where-police-have-killed-americans-in-2015/). Using data from FiveThirtyEight, we explore the relationships between household income, race, and the number of people killed by the police. According to [US Census Bureau data](https://www.census.gov/library/publications/2016/demo/p60-256.html#:~:text=Median%20household%20income%20in%20the,before%20the%20most%20recent%20recession.), the national median household income in 2015 was $56.516, yet we see that the vast majority of people killed by the police across all races lived in neighborhoods with a median household income well below this national average.
@@ -39,7 +40,7 @@ state_region <- rbind(state_region, data.frame(state = "DC", region = "South"))
 police_data <- merge(police_killings, state_region, by = "state")
 ```
 
-```{r creating_income_ranges, include=FALSE}
+```{r creating_income_ranges}
 income <- police_killings$h_income
 police_killings <- police_killings %>%
   mutate(income_range = cut(income,
@@ -50,22 +51,17 @@ police_killings <- police_killings %>%
 ```{r graph1, message=FALSE}
 #Plot Code - Wrapping by Race
 ggplot(data=police_data, aes(h_income)) +
-  geom_histogram(color="black",fill="white") +
-  theme_fivethirtyeight()+ 
-  geom_vline(xintercept=40000, linetype="dotted") +
-  geom_text(aes(x=40000, label="Lower Class", y=20), color="blue", angle=90, vjust = -0.5, size=2) + 
-  geom_text(aes(x=40000, label="Middle Class", y=20), color="blue", angle=90, vjust=1.5, size=2) +
-  geom_text(aes(x=120000, label="Upper Class", y=20), color="blue", angle=90, vjust=1.5, size=2) +
-  geom_vline(xintercept=120000, linetype="dotted") +
+  geom_histogram(binwidth=4000, aes(fill=income_range)) +
+  scale_fill_brewer(palette = "Reds")+
   theme(axis.title = element_text())+
-  scale_fill_fivethirtyeight()+
   facet_wrap(~raceethnicity) + 
   scale_x_continuous(name = "Tract-level Median Household Income ($)")+
   scale_y_continuous(name = "Number of Individuals Killed")+
   labs(
     title = "Figure 1: Economic Breakdown of Police Killings",
     subtitle = "Household Incomes Of People Killed by the Police",
-    caption = "Source: fivethirtyeight"
+    caption = "Source: fivethirtyeight",
+    fill = "Income Ranges"
   )
 ```
 
@@ -123,4 +119,3 @@ We met the Aesthetics standard because we used a histogram for our first data gr
 We met the Context standard because we created graphics with readable axis labels and appropriate units and included legends where appropriate.
 - `r standard_button("ethics")`
 We met the Ethics standard because we acknowledged the potential ethical issues of displaying the racial breakdowns of people killed by the police and explained that this data should not be taken out of context.
-
