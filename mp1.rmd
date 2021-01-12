@@ -98,7 +98,7 @@ ggplot(data = police_data, aes(region))+
   scale_y_continuous(name = "Number of Individuals Killed")
 ```
 
-The graphs below show the racial breakdowns of the individuals killed by the police in 2015 in each state (Figure 2.1) and region (Figure 2.2). Each race is mapped to a specific color. In figure 2.1 it is evident that in most states, the majority of the killings were of White race. However, a large proportion of Black individuals were killed in almost all states. Such trend is more evident in figure 2.2, where among all minority groups (Asian/Pacific Islander, Black Hispanic/Latino, Native American), a drastically high number of Black individuals are killed in almost all regions. 
+The graphs above show the racial breakdowns of the individuals killed by the police in 2015 in each state (Figure 2.1) and region (Figure 2.2). Each race is mapped to a specific color. In figure 2.1 it is evident that in most states, the majority of the killings were of White race. However, a large proportion of Black individuals were killed in almost all states. Such trend is more evident in figure 2.2, where among all minority groups (Asian/Pacific Islander, Black Hispanic/Latino, Native American), a drastically high number of Black individuals are killed in almost all regions. 
 
 ## Word count
 
