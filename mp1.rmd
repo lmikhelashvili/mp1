@@ -29,7 +29,7 @@ library(ggthemes)
 
 ## Introduction
 
-```{r}
+```{r, include=FALSE}
 # Adding in column for Region to dataset
 state_region <- data.frame(state = state.abb, region = state.region)
 state_region <- rbind(state_region, data.frame(state = "DC", region = "South"))
@@ -44,6 +44,7 @@ police_data
 #Plot Code - Wrapping by Race
 ggplot(data=police_data, aes(h_income)) +
   geom_histogram() +
+  geom_vline(xintercept = 56516) +
   theme_fivethirtyeight()+
   theme(axis.title = element_text())+
   scale_fill_fivethirtyeight()+
@@ -51,8 +52,8 @@ ggplot(data=police_data, aes(h_income)) +
   scale_x_continuous(name = "Tract-level Median Household Income (h_income)")+
   scale_y_continuous(name = "Number of Individuals Killed")+
   labs(
-    title = "Median Household Income Distribution Among People Killed by the Police in 2015", 
-    subtitle = "Distribution by Race",
+    title = "Household Incomes Of People Killed by the Police", 
+    subtitle = "Household Income Distribution by Race of People Killed by the Police in 2015",
     caption = "Source: fivethirtyeight"
   )
 ```
