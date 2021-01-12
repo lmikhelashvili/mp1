@@ -28,11 +28,9 @@ library(fivethirtyeight)
 library(ggthemes)
 ```
 
-## Introduction
-
 In the first six months of 2015, [467 people in the US were killed by the police](https://fivethirtyeight.com/features/where-police-have-killed-americans-in-2015/). Using data from FiveThirtyEight, we explore the relationships between household income, race, and the number of people killed by the police. According to [US Census Bureau data](https://www.census.gov/library/publications/2016/demo/p60-256.html#:~:text=Median%20household%20income%20in%20the,before%20the%20most%20recent%20recession.), the national median household income in 2015 was $56.516, yet we see that the vast majority of people killed by the police across all races lived in neighborhoods with a median household income well below this national average.
 
-We also examine the racial distribution of people killed by the police as it relates to geography. In almost every state and region of the US, we see that the number of white people killed by the police exceeds the number of people of color killed by the police. However, when we account for demographic, we find that the number of people of color killed by the police is disproportionately high.
+We also examine the racial distribution of people killed by the police as it relates to geography and see that although there is a greater number of white people killed by the police, people of color are killed at a disproportionate rate.
 
 ```{r, include=FALSE}
 # Adding in column for Region to dataset
