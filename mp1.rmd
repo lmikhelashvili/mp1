@@ -46,8 +46,6 @@ police_data
 ```
 
 
-### Graph 1
-
 ```{r graph1, message=FALSE}
 #Plot Code - Wrapping by Race
 ggplot(data=police_data, aes(h_income)) +
@@ -64,15 +62,13 @@ ggplot(data=police_data, aes(h_income)) +
   scale_x_continuous(name = "Tract-level Median Household Income ($)")+
   scale_y_continuous(name = "Number of Individuals Killed")+
   labs(
-    title = "Household Incomes Of People Killed by the Police", 
-    subtitle = "Figure 1: Economic Breakdown of Police Killings",
+    title = "Figure 1: Economic Breakdown of Police Killings",
+    subtitle = "Household Incomes Of People Killed by the Police",
     caption = "Source: fivethirtyeight"
   )
 ```
 
-Graph 1 shows how the number of individuals killed varies with their median household income. Generally, we can see that for each race, the highest number of individuals killed by the police lies in lower class. The exception to this is Asian/Pacific Islander and White, where the highest number of individuals killed lies just above the boundary for the lower class. This is especially telling since even though the lower class only accounts for around 30% of the population (Pew Research Center, 2015), they still have the highest number of individuals killed by the police.
-
-### Graph 2
+Figure 1 shows how the number of individuals killed varies with their median household income. Generally, we can see that for each race, the highest number of individuals killed by the police lies in lower class. The exception to this is Asian/Pacific Islander and White, where the highest number of individuals killed lies just above the boundary for the lower class. This is especially telling since even though the lower class only accounts for around 30% of the population (Pew Research Center, 2015) yet they still have the highest number of individuals killed by the police.
 
 ```{r state_breakdown, message=FALSE}
 ggplot(data = police_data, aes(state))+
