@@ -68,7 +68,7 @@ ggplot(data=police_data, aes(h_income)) +
   )
 ```
 
-Figure 1 shows how the number of individuals killed varies with their median household income. Generally, we can see that for each race, the highest number of individuals killed by the police lies in lower class. The exception to this is Asian/Pacific Islander and White, where the highest number of individuals killed lies just above the boundary for the lower class. This is especially telling since even though the lower class only accounts for around 30% of the population (Pew Research Center, 2015) yet they still have the highest number of individuals killed by the police.
+Figure 1 shows how the number of individuals killed varies with their median household income. Generally, we can see that for each race, the highest number of individuals killed by the police lies in lower class. The exception to this is Asian/Pacific Islander and White, where the highest number of individuals killed lies just above the boundary for the lower class. This is especially telling since even though the [lower class only accounts for around 30% of the population](https://www.pewresearch.org/fact-tank/2020/07/23/are-you-in-the-american-middle-class/) yet they still have the highest number of individuals killed by the police ^[Bennett, J., Fry, R., & Kochhar, R. (2021). Are you in the American middle class? Find out with our income calculator. Pew Research Center. Retrieved 12 January 2021, from https://www.pewresearch.org/fact-tank/2020/07/23/are-you-in-the-american-middle-class/.].
 
 ```{r state_breakdown, message=FALSE}
 ggplot(data = police_data, aes(state))+
@@ -117,7 +117,7 @@ In this assignment, we attempted the following [standards](https://beanumber.git
 - `r standard_button("markdown")`
 We met the Markdown standard because we were able to format our markdown file such that it shows only necessary content by usinG booleans such as include, eval and echo. We were able to format our file to be readable using code chunks and data graphics. Furthermore, we had titles, subtitles and paragraphs to add partitions to our markdown file.
 - `r standard_button("aesthetics")`
-We met the Aesthetics standard because we used a histogram for our first data graphic and a bar chart for our second data graphic. We used a categorical color scheme to show different races in graph 2.
+We met the Aesthetics standard because we used a histogram for our first data graphic and a bar chart for our second data graphic. We used a categorical color scheme to show different races in figure 2, and added links for our references.
 - `r standard_button("context")`
 We met the Context standard because we created graphics with readable axis labels and appropriate units and included legends where appropriate.
 - `r standard_button("ethics")`
