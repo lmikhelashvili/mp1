@@ -82,7 +82,7 @@ ggplot(data = police_data, aes(state))+
   theme_fivethirtyeight()+ 
   theme(axis.title = element_text())+
   theme(axis.text.y = element_text(size  = 5))+
-  scale_fill_brewer(palette = "Set1", na.value=  "grey")
+  scale_fill_brewer(palette = "Accent", na.value=  "grey")
 ```
 
 ```{r region_breakdown, message= FALSE}
@@ -97,7 +97,7 @@ ggplot(data = police_data, aes(region))+
   scale_y_continuous(name = "Number of Individuals Killed")+
   theme_fivethirtyeight()+ 
   theme(axis.title = element_text())+
-  scale_fill_brewer(palette = "Set1", na.value=  "grey")
+  scale_fill_brewer(palette = "Accent", na.value=  "grey")
 ```
 
 The graphs show the racial breakdowns of the individuals killed by the police in 2015 in each state (Figure 2.1) and region (Figure 2.2). Each race is mapped to a specific color. In figure 2.1 it is evident that in most states, the majority of the killings were of White race. However, this data should not be taken out of context. We should expect that a higher number of white people are killed by the police because white people make up the majority of the US population. White people of non-Hispanic origin [account for around 60% of the population](https://www.census.gov/quickfacts/fact/table/US/PST045219), whereas Black people, the next most frequently killed demographic, account for only 13.4% of the population. Although we see higher numbers of white people being killed, when racial demographics are take into account, the number of people of color killed by the police is disproportionately high ^[Feldman, J., Gruskin, S., Coull, B., & Krieger, N. (2019). Police-Related Deaths and Neighborhood Economic and Racial/Ethnic Polarization, United States, 2015–2016. American Journal Of Public Health, 109(3), 458-464. https://doi.org/10.2105/ajph.2018.304851].
