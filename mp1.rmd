@@ -29,7 +29,7 @@ library(ggthemes)
 
 ## Introduction
 
-```{r}
+```{r echo=FALSE}
 # Adding in column for Region to dataset
 state_region <- data.frame(state = state.abb, region = state.region)
 state_region <- rbind(state_region, data.frame(state = "DC", region = "South"))
@@ -42,8 +42,13 @@ police_data <- merge(police_killings, state_region, by = "state")
 ```{r graph1, message=FALSE}
 #Plot Code - Wrapping by Race
 ggplot(data=police_data, aes(h_income)) +
-  geom_histogram() +
-  theme_fivethirtyeight()+
+  geom_histogram(color="black",fill="white") +
+  theme_fivethirtyeight()+ 
+  geom_vline(xintercept=40000, linetype="dotted") +
+  geom_text(aes(x=40000, label="Lower Class", y=20), color="blue", angle=90, vjust = -0.5, size=2) + 
+  geom_text(aes(x=40000, label="Middle Class", y=20), color="blue", angle=90, vjust=1.5, size=2) +
+  geom_text(aes(x=120000, label="Upper Class", y=20), color="blue", angle=90, vjust=1.5, size=2) +
+  geom_vline(xintercept=120000, linetype="dotted") +
   theme(axis.title = element_text())+
   scale_fill_fivethirtyeight()+
   facet_wrap(~raceethnicity) + 
@@ -55,6 +60,8 @@ ggplot(data=police_data, aes(h_income)) +
     caption = "Source: fivethirtyeight"
   )
 ```
+
+Graph 1 shows how the number of individuals killed varies with their median household income. Generally, we can see that for each race, the highest number of individuals killed by the police lies in lower class. The exception to this is Asian/Pacific Islander and White, where the highest number of individuals killed lies just above the boundary for the lower class. This is especially telling since even though the lower class only accounts for around 30% of the population (Pew Research Center, 2015), they still have the highest number of individuals killed by the police.
 
 ### Graph 2
 
