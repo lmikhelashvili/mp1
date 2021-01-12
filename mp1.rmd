@@ -41,8 +41,8 @@ police_data <- merge(police_killings, state_region, by = "state")
 ```
 
 ```{r creating_income_ranges}
-income <- police_killings$h_income
-police_killings <- police_killings %>%
+income <- police_data$h_income
+police_data <- police_data %>%
   mutate(income_range = cut(income,
                     breaks=c(0,40000,120000,160000),
                     labels=c("Lower Class","Middle Class", "Upper Class")))
