@@ -35,8 +35,12 @@ state_region <- data.frame(state = state.abb, region = state.region)
 state_region <- rbind(state_region, data.frame(state = "DC", region = "South"))
 
 police_data <- merge(police_killings, state_region, by = "state")
+```
+
+```{r}
 police_data
 ```
+
 
 ### Graph 1
 
