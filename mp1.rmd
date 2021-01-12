@@ -40,7 +40,7 @@ state_region <- rbind(state_region, data.frame(state = "DC", region = "South"))
 police_data <- merge(police_killings, state_region, by = "state")
 ```
 
-```{r creating_income_ranges}
+```{r creating_income_ranges, include=FALSE}
 income <- police_data$h_income
 police_data <- police_data %>%
   mutate(income_range = cut(income,
