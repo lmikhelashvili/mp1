@@ -62,9 +62,7 @@ ggplot(data=police_data, aes(h_income)) +
     title = "Figure 1: Economic Breakdown of Police Killings",
     subtitle = "Household Incomes Of People Killed by the Police",
     caption = "Source: fivethirtyeight",
-    fill = "Income Ranges",
-    xlab = "Tract-level Median Household Income ($)",
-    ylab = "Number of Individuals Killed"
+    fill = "Income Ranges"
   ) +
   theme(axis.title = element_text())
 ```
