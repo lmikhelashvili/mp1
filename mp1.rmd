@@ -47,7 +47,7 @@ police_data
 ```{r graph1, message=FALSE}
 #Plot Code - Wrapping by Race
 ggplot(data=police_data, aes(h_income)) +
-  geom_histogram() +
+  geom_histogram(binwidth = 10000) +
   geom_vline(xintercept = 56516) +
   theme_fivethirtyeight()+
   theme(axis.title = element_text())+
