@@ -24,33 +24,50 @@ knitr::opts_chunk$set(
 library(tidyverse)
 library(sds192)
 library(fivethirtyeight)
+library(ggthemes)
 ```
 
 ## Introduction
 
 ```{r}
-police_killings
+# Adding in column for Region to dataset
+state_region <- data.frame(state = state.abb, region = state.region)
+state_region <- rbind(state_region, data.frame(state = "DC", region = "South"))
+
+police_data <- merge(police_killings, state_region, by = "state")
 ```
 
-
-x-axis: `h_income`
-
-y-axis: number of people falling into each bin of household income
-
-color coded to races 
+### Graph 1
 
 ```{r graph1, message=FALSE}
-ggplot(data=police_killings, aes(h_income)) +
-  geom_histogram(aes(fill = raceethnicity)) + 
-  facet_wrap(~state) + 
-  scale_fill_brewer(palette = "Set1")
+#Plot Code - Wrapping by Race
+ggplot(data=police_data, aes(h_income)) +
+  geom_histogram() +
+  theme_fivethirtyeight()+
+  theme(axis.title = element_text())+
+  scale_fill_fivethirtyeight()+
+  facet_wrap(~raceethnicity) + 
+  scale_x_continuous(name = "Tract-level Median Household Income")+
+  scale_y_continuous(name = "Number of Individuals Killed")+
+  labs(
+    title = "Median Household Income Distribution Among People Killed by the Police in 2015", 
+    subtitle = "Distribution by Race",
+    caption = "Source: fivethirtyeight"
+  )
 ```
 
+### Graph 2
 
-```{r graph_random, message=FALSE}
+```{r racial_breakdown, message=FALSE}
 ggplot(data = police_killings, aes(state))+
   coord_flip()+
-  geom_bar(aes(x = state, stat = "count", fill = raceethnicity))
+  geom_bar(aes(x = state, fill = raceethnicity))+
+    labs(
+    title = "Racial Breakdown of People Killed by the Police in 2015", 
+    caption = "Source: fivethirtyeight"
+  )+
+  scale_x_discrete(name = "State Abbreviation")+
+  scale_y_continuous(name = "Number of Individuals Killed")
 ```
 
 
