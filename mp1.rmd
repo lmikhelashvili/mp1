@@ -1,5 +1,5 @@
 ---
-title: "SDS 192 Assignment"
+title: "An Economic, Racial, and Geographic Breakdown of People Killed by the Police in 2015"
 subtitle: "SDS 192"
 author: "Malaika Kironde, Jack Kendrick, Lika Mikhelashvili"
 date: "`r format(Sys.Date(), '%B %e, %Y')`"
@@ -33,14 +33,15 @@ In the first six months of 2015, [467 people in the US were killed by the police
 
 We also examine the racial distribution of people killed by the police as it relates to geography and see that although there is a greater number of white people killed by the police, people of color are killed at a disproportionate rate.
 
-```{r, include=FALSE}
-# Adding in column for Region to dataset
+```{r state_regions}
+# Adding in column for Region to data
 state_region <- data.frame(state = state.abb, region = state.region)
 state_region <- rbind(state_region, data.frame(state = "DC", region = "South"))
 police_data <- merge(police_killings, state_region, by = "state")
 ```
 
-```{r creating_income_ranges, include=FALSE}
+```{r creating_income_ranges}
+#Adding Income Ranges to Data
 income <- police_data$h_income
 police_data <- police_data %>%
   mutate(income_range = cut(income,
@@ -61,7 +62,7 @@ ggplot(data=police_data, aes(h_income)) +
   labs(
     title = "Figure 1: Economic Breakdown of Police Killings",
     subtitle = "Household Incomes Of People Killed by the Police",
-    caption = "Source: fivethirtyeight",
+    caption = "Source: FiveThirtyEight",
     fill = "Income Ranges"
   ) +
   theme(axis.title = element_text())
@@ -70,6 +71,7 @@ ggplot(data=police_data, aes(h_income)) +
 Figure 1 shows how the number of individuals killed varies with their median household income. Generally, we can see that for each race, the highest number of individuals killed by the police lies in lower class. The exception to this is Asian/Pacific Islander and White, where the highest number of individuals killed lies just above the boundary for the lower class. This is especially telling since even though the [lower class only accounts for around 30% of the population](https://www.pewresearch.org/fact-tank/2020/07/23/are-you-in-the-american-middle-class/) yet they still have the highest number of individuals killed by the police ^[Bennett, J., Fry, R., & Kochhar, R. (2021). Are you in the American middle class? Find out with our income calculator. Pew Research Center. Retrieved 12 January 2021, from https://www.pewresearch.org/fact-tank/2020/07/23/are-you-in-the-american-middle-class/.].
 
 ```{r state_breakdown, message=FALSE}
+# Racial Breakdown of Killings in each State
 ggplot(data = police_data, aes(state))+
   coord_flip()+
   geom_bar(aes(x = state, fill = raceethnicity))+
@@ -88,6 +90,7 @@ ggplot(data = police_data, aes(state))+
 ```
 
 ```{r region_breakdown, message= FALSE}
+# Racial Breakdown of Killings in each Region
 ggplot(data = police_data, aes(region))+
   geom_bar(aes(x = region, fill = raceethnicity))+
   labs(title = "Figure 2.2: Racial Breakdown of Police Killings",
