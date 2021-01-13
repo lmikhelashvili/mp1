@@ -33,14 +33,14 @@ In the first six months of 2015, [467 people in the US were killed by the police
 
 We also examine the racial distribution of people killed by the police as it relates to geography and see that although there is a greater number of white people killed by the police, people of color are killed at a disproportionate rate.
 
-```{r state_regions}
+```{r state_regions, include=FALSE}
 # Adding in column for Region to data
 state_region <- data.frame(state = state.abb, region = state.region)
 state_region <- rbind(state_region, data.frame(state = "DC", region = "South"))
 police_data <- merge(police_killings, state_region, by = "state")
 ```
 
-```{r creating_income_ranges}
+```{r creating_income_ranges, include=FALSE}
 #Adding Income Ranges to Data
 income <- police_data$h_income
 police_data <- police_data %>%
