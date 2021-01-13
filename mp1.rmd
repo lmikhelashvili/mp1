@@ -1,5 +1,5 @@
 ---
-title: "An Economic, Racial, and Geographic Breakdown of People Killed by the Police in 2015"
+title: "An Economic and Racial Breakdown of People Killed by the Police in 2015"
 subtitle: "SDS 192"
 author: "Malaika Kironde, Jack Kendrick, Lika Mikhelashvili"
 date: "`r format(Sys.Date(), '%B %e, %Y')`"
