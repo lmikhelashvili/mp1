@@ -116,9 +116,9 @@ text_stats()
 In this assignment, we attempted the following [standards](https://beanumber.github.io/sds192/standards.html):
 
 - `r standard_button("markdown")`
-We met the Markdown standard because we were able to format our markdown file such that it shows only necessary content by usinG booleans such as include, eval and echo. We were able to format our file to be readable using code chunks and data graphics. Furthermore, we had titles, subtitles and paragraphs to add partitions to our markdown file.
+We met the Markdown standard because we were able to format our markdown file such that it shows only necessary content by using booleans such as include, eval and echo. We were able to format our file to be readable using code chunks and data graphics. Furthermore, we had titles, subtitles and paragraphs to add partitions to our markdown file.
 - `r standard_button("aesthetics")`
-We met the Aesthetics standard because we used a histogram for our first data graphic and a bar chart for our second data graphic. We used a categorical color scheme to show different races in figure 2, and added links for our references.
+We met the Aesthetics standard because we used a histogram for our first data graphic and a bar chart for our second data graphic. We used a categorical color scheme to show different races in figure 2, a continuous palette to show income ranges in figure 1 and added links for our references.
 - `r standard_button("context")`
 We met the Context standard because we created graphics with readable axis labels and appropriate units and included legends where appropriate.
 - `r standard_button("ethics")`
